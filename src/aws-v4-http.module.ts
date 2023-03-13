@@ -1,17 +1,15 @@
+import { HttpModule, HttpModuleOptions } from '@nestjs/axios';
 import {
   DynamicModule,
   FactoryProvider,
-  HttpModule,
-  HttpModuleOptions,
   Module,
   ModuleMetadata,
 } from '@nestjs/common';
-import { AXIOS_INSTANCE_TOKEN } from '@nestjs/common/http/http.constants';
 import { Credentials, InterceptorOptions } from 'aws4-axios/dist/interceptor';
 import Axios from 'axios';
 
 import { AwsV4HttpService } from './aws-v4-http.service';
-import { AWS_V4_HTTP_MODULE_OPTIONS } from './constants';
+import { AWS_V4_HTTP_MODULE_OPTIONS, AXIOS_INSTANCE_TOKEN } from './constants';
 
 export type AwsV4HttpModuleOptions = HttpModuleOptions &
   InterceptorOptions & {
